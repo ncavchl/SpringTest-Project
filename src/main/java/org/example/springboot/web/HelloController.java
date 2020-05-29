@@ -1,6 +1,8 @@
 package org.example.springboot.web;
 
+import org.example.springboot.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //컨트롤러를 JSON으로 반환하는 컨트롤러 생성
@@ -20,4 +22,10 @@ public class HelloController {
         return "rerere";
     }
 
+    @GetMapping("/hello/dto")
+    public HelloResponseDto helloDto(@RequestParam("name") String name,
+                                     @RequestParam("amount") int amount){
+        return new HelloResponseDto(name, amount);
+    }
 }
+

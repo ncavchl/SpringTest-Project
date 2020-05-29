@@ -35,6 +35,10 @@ repositories {
 //프로젝트 개발에 필요한 의존성들을 선언하는 곳.
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    //compile('org.projectlombok:lombok') - 이거 말고 아래버전으로 업데이트 필요
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
 }
