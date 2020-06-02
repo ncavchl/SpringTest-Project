@@ -40,6 +40,11 @@ public class Posts extends BaseTimeEntity {
         this.content = content;
     }
 
+    //custom
+    public void update2(String title){
+        this.title = title;
+    }
+
     //@Entity 테이블과 링크될 클래스임을 나타냄
     //@GeneratedValue PK 생성 규칙을 나타냄.
     //@Column 테이블의 칼럼을 나타내며 굳이 선언안하더라도 해당 클래스의 필드는 모두 칼럼이 됨.

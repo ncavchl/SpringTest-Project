@@ -2,6 +2,7 @@ package org.example.springboot.web;
 
 import lombok.RequiredArgsConstructor;
 import org.example.springboot.service.PostsService;
+import org.example.springboot.web.dto.CustomDto;
 import org.example.springboot.web.dto.PostsResponseDto;
 import org.example.springboot.web.dto.PostsSaveRequestDto;
 import org.example.springboot.web.dto.PostsUpdateRequestDto;
@@ -22,9 +23,22 @@ public class PostApiController {
         return postsService.update(id, requestDto);
     }
 
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
+    }
+
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById (@PathVariable Long id){
         return postsService.findById(id);
     }
 
+
+    //cusotom
+    @PutMapping("/api/v1/{id}")
+    public Long custom(@PathVariable Long id){
+        System.out.println("controller----------");
+        return postsService.update2(id);
+    }
 }
