@@ -78,18 +78,20 @@ var main = {
     custom:function(){
         var id=$('#id').val();
 
+        var result = "";
         $.ajax({
             type:'PUT',
             url:'/api/v1/' + id,
             dataType:'json',
             contentType:'application/json; charset=utf-8',
-        }).done(function(){
-            alert('제목이 변경됨.');
+        }).done(function(result){
+            alert('제목이 변경됨.' + result);
         //    window.location.href = '/';
              window.location.href='/posts/update/' + id;
         }).fail(function (error){
             alert(JSON.stringify(error));
         });
+
     }
 };
 

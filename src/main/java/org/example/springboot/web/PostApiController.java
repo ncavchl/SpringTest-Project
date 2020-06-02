@@ -38,7 +38,6 @@ public class PostApiController {
     //cusotom
     @PutMapping("/api/v1/{id}")
     public Long custom(@PathVariable Long id){
-        System.out.println("controller----------");
         return postsService.update2(id);
     }
 }
