@@ -24,6 +24,7 @@ apply plugin: 'io.spring.dependency-management'
 group 'org.example'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
+//원래 1.8
 
 //각 의존성(라이브러리)들을 어떤 원격 저장소에 받을지 - 라이브러리 업로드 난이도 때문에 jcenter도 많이 이용
 //요즘은 jcenter를 더 많이 씀 편리하기 때문에
@@ -35,9 +36,11 @@ repositories {
 //프로젝트 개발에 필요한 의존성들을 선언하는 곳.
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    //compile('org.projectlombok:lombok') - 이거 말고 아래버전으로 업데이트 필요
-    compileOnly 'org.projectlombok:lombok:1.18.10'
-    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+//    compile('org.projectlombok:lombok')
+    //- 이거 말고 아래버전으로 업데이트 필요
+
+    compileOnly 'org.projectlombok:lombok:1.18.12' // 원래 10
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     //스프링 부트용 spring data jpa 추상화 라이브러리 & 자동으로 jpa 관련 라이브러리 버전 관리해줌.
@@ -54,5 +57,10 @@ dependencies {
     //소셜 로그인 등 클라이언트 입장에서 소셜 기능 구현시 필요한 의존성입니다.
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis
+    compile group: 'org.springframework.session', name: 'spring-session-data-redis', version: '2.3.0.RELEASE'
+
+
 
 }
